@@ -14,14 +14,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlin.text.HexFormat.Companion.UpperCase
 
-private const val GYRO_MULTIPLIER = 500f / 65536f
+private const val GYRO_MULTIPLIER = 1.0f //500f / 65536f
 
 val sensorTagUuid = uuidFrom("19D0EA00-E8F2-537E-4F6C-D104768A1214".lowercase()) //0000aa80-0000-1000-8000-00805f9b34fb")
 private val nanoSenseServiceUuid = sensorTagUuid("EA00") //""aa80")
 private val nanoSenseColorCharacteristicUuid = sensorTagUuid("EA01") //""aa81")
 private val nanoSenseWeatherCharacteristicUuid = sensorTagUuid("2902")
-//private val movementConfigurationUuid = sensorTagUuid("aa82")
-//private val movementPeriodUuid = sensorTagUuid("aa83")
 private val clientCharacteristicConfigUuid = Bluetooth.BaseUuid + 0x2902
 
 private val colorCharacteristic = characteristicOf(
@@ -33,15 +31,6 @@ private val weatherCharacteristic = characteristicOf(
     service = nanoSenseServiceUuid,
     characteristic = nanoSenseWeatherCharacteristicUuid,
 )
-//private val movementDataCharacteristic = characteristicOf(
-//    service = movementSensorServiceUuid,
-//    characteristic = movementSensorDataUuid,
-//)
-
-//private val movementPeriodCharacteristic = characteristicOf(
-//    service = movementSensorServiceUuid,
-//    characteristic = movementPeriodUuid,
-//)
 
 val scanner = Scanner {
     logging {
@@ -59,12 +48,6 @@ val services = listOf(
     nanoSenseServiceUuid,
     nanoSenseColorCharacteristicUuid,
     nanoSenseWeatherCharacteristicUuid,
-
-//    movementSensorServiceUuid,
-//    movementSensorDataUuid,
-//    movementNotificationUuid,
-//    movementConfigurationUuid,
-//    movementPeriodUuid,
     clientCharacteristicConfigUuid,
 )
 
