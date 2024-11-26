@@ -4,31 +4,48 @@
 
 # SensorTag
 
-Sample app providing connectivity/communication (connects and reads gyroscope) with [SensorTag] devices to demonstrate
-capabilities/usage of [Kable] library.
+Sample app providing connectivity/communication (connects and reads gyroscope) with [SensorTag]
+devices to demonstrate capabilities/usage of [Kable] library.
 
 ## Android
 
-![Android app screen recording](artwork/android.gif)
+![Android App screen recording](artwork/android.gif)
 
 The Android App can be built and installed via [Android Studio], or via command line by executing:
 
-```
+```shell
 ./gradlew installDebug
 ```
+
+## iOS
+
+![iOS App screen recording](artwork/ios.gif)
+
+The iOS project is generated via:
+
+```shell
+./gradlew generateXcodeProject
+```
+
+> [!TIP]
+> `./gradlew openXcode` can be used to both generate the project _and_ open it in Xcode.
+
+In Xcode, configure signing, then run.
 
 ## JavaScript
 
 ![JavaScript browser app screen recording](artwork/javascript.gif)
 
-To build and launch the demo within a browser window, run:
+A live demo can be viewed [here](https://juullabs.github.io/sensortag), or to build and launch the
+demo within a browser window on your local machine, run:
 
-```
+```shell
 ./gradlew jsBrowserRun
 ```
 
-_Web Bluetooth is only available on supported browsers, see [Web Bluetooth API: Browser compatibility] for a list of
-supported browsers._
+> [!IMPORTANT]
+> Web Bluetooth is only available on supported browsers, see
+> [Web Bluetooth API: Browser compatibility] for a list of supported browsers.
 
 ## MacOS
 
@@ -49,7 +66,7 @@ Console app can be built and run by executing:
 <td>Intel</td>
 <td>
 
-```bash
+```shell
 ./gradlew runDebugExecutableMacosX64
 ```
 
@@ -60,7 +77,7 @@ Console app can be built and run by executing:
 <td>Apple (e.g. M1)</td>
 <td>
 
-```bash
+```shell
 ./gradlew runDebugExecutableMacosArm64
 ```
 
